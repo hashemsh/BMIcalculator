@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>محاسبه شاخص توده بدنی (BMI)</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body dir="rtl">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        محاسبه شاخص توده بدنی (BMI)
+                    </div>
+                    <div class="card-body">
+                        <form class="m-auto" onsubmit="return false">
+                            <div class="form-group">
+                                <label for="weight">وزن ( کیلوگرم ) :</label>
+                                <input type="number" id="weight" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="Height">قد ( سانتیمتر ) :</label>
+                                <input type="number" id="height" class="form-control">
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-success" onclick="bmiCalculator()">محاسبه </button>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="BMI">BMI شما : </label>
+                                <div id="result"></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer h-50">
+                       <div id="resultcontents"></div>
+                    </div>
+                </div>
+                <p dir="ltr" class="mt-4">code by hash ...!</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function bmiCalculator(){
+                var cm = parseInt(document.getElementById("height").value);
+                var kg = parseFloat(document.getElementById("weight").value);
+                var bmi;
+                var newCm= parseFloat(cm/100);
+                bmi = kg / (newCm * newCm);
+                bmi = bmi.toFixed(1);
+                document.getElementById("result").innerHTML = bmi;
+                if(bmi>30){
+                    document.getElementById("resultcontents").innerHTML = "بیشتر از 30 یعنی چاق ";
+                }else if(25<bmi && bmi<29.9){
+                    document.getElementById("resultcontents").innerHTML = "اضافه وزن دارید "
+                }else if(18.5<bmi && bmi<24.9){
+                    document.getElementById("resultcontents").innerHTML = "خوشبحالت وزنت معمولیه "
+                }else if(bmi<18.5){
+                    document.getElementById("resultcontents").innerHTML = "لاغرررر خیلی لاغر "
+                }else {
+                    document.getElementById("resultcontents").innerHTML = "نامعلوم  "
+                }
+                }
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+</body></html>
