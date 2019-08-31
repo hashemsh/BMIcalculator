@@ -1,0 +1,10 @@
+body{
+    font-family: iransans;
+}
+
+p {
+    line-height: 30px;
+}
+.card-footer{
+    height: 50px !important;
+}
